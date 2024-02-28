@@ -25,8 +25,8 @@ public class CrudSpringApplication {
 			courseRepository.deleteAll();
 						
 			List<Course> list = new ArrayList<>();
-			list.add(new Course(null, "Java", "front-end"));
-			list.add(new Course(null, "Angular", "back-end"));
+			list.add(new Course(null, "Java 17", "Back-end"));
+			list.add(new Course(null, "Angular", "Back-end"));
 			
 			for (Course course : list) {
 				courseRepository.save(course);				

@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -18,10 +22,16 @@ public class Course {
 	@JsonProperty("_id")
 	private Long id;
 	
-	@Column(name = "NOME")
+	@NotBlank
+	@NotNull
+	@Size(min = 5, max = 100)
+	@Column(name = "NOME", length = 100)
 	private String name;
 	
-	@Column(name = "CATEGORIA")
+	@NotNull
+	@Size(max = 10)
+	@Pattern(regexp = "Back-end|Front-end")
+	@Column(name = "CATEGORIA", length = 10)
 	private String category;
 
 	public Course() {}
